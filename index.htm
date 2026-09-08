@@ -70,7 +70,7 @@
         </div>
 
 
-        <div class="max-w-7xl mx-auto flex flex-nowrap items-center justify-between gap-4 w-full">
+        <div class="max-w-7xl mx-auto flex flex-nowrap items-center justify-between gap-2 sm:gap-4 w-full">
             <a href="#"
                 class="min-w-9 inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded">
                 <span class="sr-only">Your Company</span>
@@ -131,16 +131,16 @@
 
 
 
-            <div class="flex items-center gap-4">
+            <div class="flex items-center gap-2 sm:gap-4">
 
 
-                <div class="relative w-[287px]">
+                <div class="relative w-[140px] sm:w-[200px] md:w-[287px]">
 
 
                     <div class="h-[43px] flex items-center border border-gray-200 rounded-full px-6 bg-white">
                         <input type="text" id="searchInput" oninput="axtariset(this.value)" placeholder="Search"
                             class="flex-1 outline-none text-[16px]">
-                        <i class="fa-solid fa-magnifying-glass text-[18px]"></i>
+                        <i class=" fa-solid fa-magnifying-glass search-icon"></i>
                     </div>
 
 
@@ -152,14 +152,14 @@
 
 
 
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-1 sm:gap-2">
                     <button onclick="opencart()"
                         class="flex items-center justify-center w-8 h-8 rounded-full bg-pink-500 shrink-0">
                         <i class="fa-solid fa-basket-shopping" style="color: white"></i>
                     </button>
                     <span id="cartcount" class="text-gray-800 font-medium hidden sm:inline"></span>
                 </div>
-                <div class="flex items-center gap-2">
+                <div class="flex items-center gap-1 sm:gap-2">
                     <button onclick="openwishlist()"
                         class="flex items-center justify-center w-8 h-8 rounded-full bg-pink-500 shrink-0">
                         <i class="fa-solid fa-heart" style="color: white;"></i>
@@ -167,7 +167,8 @@
                     <span id="wishlistcount" class="text-gray-800 font-medium hidden sm:inline"></span>
                 </div>
 
-                <button onclick="openMenu()" id="hamburgerBtn" class="lg:hidden text-2xl text-gray-800">
+                <button onclick="openMenu()" id="hamburgerBtn"
+                    class="lg:hidden text-xl sm:text-2xl text-gray-800 shrink-0">
                     <i class="fa-solid fa-bars"></i>
                 </button>
 

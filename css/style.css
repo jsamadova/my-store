@@ -2,3 +2,9 @@ body {
     font-family: 'Poppins', sans-serif;
 
 }
+
+@media (max-width: 780px) {
+    .search-icon {
+        display: none !important;
+    }
+}
