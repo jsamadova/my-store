@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Store</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="src/output.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+        integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <nav class="flex py-2 px-4 md:px-8 bg-white border-b border-slate-300 min-h-[68px] relative z-20"
+        aria-label="Main navigation">
+
+
+        <div id="mobileMenu" class="fixed inset-0 z-50 hidden">
+
+            <div id="menuOverlay" class="absolute inset-0 bg-black/40">
+            </div>
+
+            <div id="menuContent" class="relative w-[350px] max-w-[85%] h-full bg-[#303030] text-white p-6">
+
+                <button onclick="closeMenu()" id="closeMenu" class="absolute top-6 right-6 text-3xl">
+                    ×
+                </button>
+
+                <div class="mt-12">
+
+                    <div class="flex items-center justify-between border-b border-gray-600 py-3">
+                        <a href="#" class="text-lg font-semibold">HOME</a>
+                    </div>
+
+                    <div class="flex items-center justify-between border-b border-gray-600 py-3">
+                        <a href="#" class="text-lg font-semibold">PAGES</a>
+                        <button class="text-2xl">+</button>
+                    </div>
+
+                    <div class="flex items-center justify-between border-b border-gray-600 py-3">
+                        <a href="#" class="text-lg font-semibold">BLOG</a>
+                        <button class="text-2xl">+</button>
+                    </div>
+
+                    <div class="flex items-center justify-between border-b border-gray-600 py-3">
+                        <a href="#" class="text-lg font-semibold">SHOP</a>
+                        <button class="text-2xl">+</button>
+                    </div>
+
+                    <div class="flex items-center justify-between border-b border-gray-600 py-3">
+                        <a href="#" class="text-lg font-semibold">COLLECTIONS</a>
+                        <button class="text-2xl">+</button>
+                    </div>
+
+                    <div class="py-3">
+                        <a href="#" class="text-lg font-semibold">SPECIALS!</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4 w-full">
+            <a href="#"
+                class="min-w-9 inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded">
+                <span class="sr-only">Your Company</span>
+                <img src="img/logo.png" alt="readymadeui logo" class="h-9 w-auto" />
+            </a>
+
+            <div id="collapseMenu" tabindex="-1"
+                class="hidden lg:block max-lg:bg-white max-lg:border-l max-lg:border-slate-300 max-lg:w-1/2 max-lg:fixed max-lg:top-0 max-lg:right-0 max-lg:h-full max-lg:shadow-md max-lg:overflow-auto max-sm:w-full z-50 outline-none">
+
+                <div
+                    class="py-2 px-4 flex justify-between items-center border-b border-slate-300 sticky top-0 bg-white lg:hidden max-lg:min-h-[68px]">
+                    <a href="#"
+                        class="inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded">
+                        <span class="sr-only">Your Company</span>
+                        <img src="https://readymadeui.com/logo-alt.svg" alt="readymadeui logo dialog"
+                            class="h-9 w-auto" />
+                    </a>
+                    <button type="button" aria-controls="collapseMenu" id="toggleClose"
+                        class="cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded">
+                        <span class="sr-only">Close main menu</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="size-4 fill-slate-900" aria-hidden="true"
+                            viewBox="0 0 329.269 329">
+                            <path
+                                d="M194.8 164.77 323.013 36.555c8.343-8.34 8.343-21.825 0-30.164-8.34-8.34-21.825-8.34-30.164 0L164.633 134.605 36.422 6.391c-8.344-8.34-21.824-8.34-30.164 0-8.344 8.34-8.344 21.824 0 30.164l128.21 128.215L6.259 292.984c-8.344 8.34-8.344 21.825 0 30.164a21.27 21.27 0 0 0 15.082 6.25c5.46 0 10.922-2.09 15.082-6.25l128.21-128.214 128.216 128.214a21.27 21.27 0 0 0 15.082 6.25c5.46 0 10.922-2.09 15.082-6.25 8.343-8.34 8.343-21.824 0-30.164zm0 0"
+                                data-original="#000000" />
+                        </svg>
+                    </button>
+                </div>
+
+                <ul class="flex flex-col gap-8 font-semibold text-sm text-slate-900 lg:flex-row max-lg:p-6">
+                    <li>
+                        <a href="#"
+                            class="hover:text-pink-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded"
+                            aria-current="page">HOME</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="hover:text-pink-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded">PAGES</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="hover:text-pink-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded">BLOG</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="hover:text-pink-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded">SHOP</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="hover:text-pink-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded">COLLECTIONS</a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="hover:text-pink-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded">SPECIALS!</a>
+                    </li>
+                </ul>
+            </div>
+
+
+
+            <div class="flex items-center gap-4">
+
+
+                <div class="relative w-[287px]">
+
+
+                    <div class="h-[43px] flex items-center border border-gray-200 rounded-full px-6 bg-white">
+                        <input type="text" id="searchInput" oninput="axtariset(this.value)" placeholder="Search"
+                            class="flex-1 outline-none text-[16px]">
+                        <i class="fa-solid fa-magnifying-glass text-[18px]"></i>
+                    </div>
+
+
+                    <ul id="srchcontainer" style="display: none;"
+                        class="shrc-container absolute left-0 top-full mt-2 w-full bg-white shadow-xl rounded-xl p-3 z-50 max-h-[350px] overflow-y-auto border border-gray-100 flex flex-col gap-3">
+                    </ul>
+
+                </div>
+
+
+
+                <div class="flex items-center gap-2">
+                    <button onclick="opencart()"
+                        class="flex items-center justify-center w-8 h-8 rounded-full bg-pink-500 shrink-0">
+                        <i class="fa-solid fa-basket-shopping" style="color: white"></i>
+                    </button>
+                    <span id="cartcount" class="text-gray-800 font-medium hidden sm:inline"></span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <button onclick="openwishlist()"
+                        class="flex items-center justify-center w-8 h-8 rounded-full bg-pink-500 shrink-0">
+                        <i class="fa-solid fa-heart" style="color: white;"></i>
+                    </button>
+                    <span id="wishlistcount" class="text-gray-800 font-medium hidden sm:inline"></span>
+                </div>
+
+                <button onclick="openMenu()" id="hamburgerBtn" class="lg:hidden text-2xl text-gray-800">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+
+
+            </div>
+
+
+            <!-- DETAIL PAGE UCUN MODAL -->
+            <div id="detailModal" style="display: none;"
+                class="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-5">
+
+                <div class="bg-white w-full max-w-4xl rounded-xl relative p-6">
+
+
+                    <button onclick="modalibagla()" class="absolute top-4 right-5 text-3xl text-gray-600">
+                        ×
+                    </button>
+
+
+
+                    <div id="detailContent" class="grid grid-cols-1 md:grid-cols-2">
+
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!-- modallar wishlist ve sebetucun -->
+
+            <div id="sebetmodal"
+                class="hidden fixed inset-0 p-4 flex flex-wrap justify-center items-center w-full h-full z-[1000] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)]"
+                style="display: none;">
+
+                <div role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1"
+                    class="w-full max-w-lg bg-white border border-slate-100 shadow-lg rounded-lg relative max-h-[95vh] overflow-y-auto outline-none p-4 md:p-6">
+                    <div class="flex items-center pb-3 border-b border-slate-300">
+                        <h3 id="modal-title" class="text-slate-900 text-lg font-semibold flex-1">Menim sebetim
+                        </h3>
+
+                        <button type="button" id="closeModal" aria-label="Close modal" onclick="opencart()"
+                            class="ml-auto flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="size-3 cursor-pointer fill-slate-500 hover:fill-red-600" aria-hidden="true"
+                                viewBox="0 0 329.269 329">
+                                <path
+                                    d="M194.8 164.77 323.013 36.555c8.343-8.34 8.343-21.825 0-30.164-8.34-8.34-21.825-8.34-30.164 0L164.633 134.605 36.422 6.391c-8.344-8.34-21.824-8.34-30.164 0-8.344 8.34-8.344 21.824 0 30.164l128.21 128.215L6.259 292.984c-8.344 8.34-8.344 21.825 0 30.164a21.27 21.27 0 0 0 15.082 6.25c5.46 0 10.922-2.09 15.082-6.25l128.21-128.214 128.216 128.214a21.27 21.27 0 0 0 15.082 6.25c5.46 0 10.922-2.09 15.082-6.25 8.343-8.34 8.343-21.824 0-30.164zm0 0" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="my-6">
+
+                        <ul id="sebetlist" class="lg:col-span-2 space-y-6"></ul>
+
+                    </div>
+
+                    <div class=" border-t border-slate-300 pt-4 flex justify-end gap-4 md:pt-6">
+                        <button type="button" id="cancelBtn" onclick="opencart()"
+                            class="px-3.5 py-2 text-slate-900 text-sm font-semibold rounded-md cursor-pointer bg-white border border-slate-300 transition-colors hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
+                            Cancel</button>
+                        <button type="button"
+                            class="px-3.5 py-2 text-white text-sm font-semibold rounded-md cursor-pointer bg-pink-500 border border-pink-500 transition-colors hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
+                            Accept</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="wishlistmodal"
+                class="fixed inset-0 p-4 flex flex-wrap justify-center items-center w-full h-full z-[1000] before:fixed before:inset-0 before:w-full before:h-full before:bg-[rgba(0,0,0,0.5)]"
+                style="display: none;">
+
+                <div role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1"
+                    class="w-full max-w-lg bg-white border border-slate-100 shadow-lg rounded-lg relative max-h-[95vh] overflow-y-auto outline-none p-4 md:p-6">
+                    <div class="flex items-center pb-3 border-b border-slate-300">
+                        <h3 id="modal-title" class="text-slate-900 text-lg font-semibold flex-1">Menim wishlistim
+                        </h3>
+
+                        <button type="button" id="closeModal" aria-label="Close modal" onclick="openwishlist()"
+                            class="ml-auto flex items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded">
+                            <svg xmlns="http://www.w3.org/2000/svg"
+                                class="size-3 cursor-pointer fill-slate-500 hover:fill-red-600" aria-hidden="true"
+                                viewBox="0 0 329.269 329">
+                                <path
+                                    d="M194.8 164.77 323.013 36.555c8.343-8.34 8.343-21.825 0-30.164-8.34-8.34-21.825-8.34-30.164 0L164.633 134.605 36.422 6.391c-8.344-8.34-21.824-8.34-30.164 0-8.344 8.34-8.344 21.824 0 30.164l128.21 128.215L6.259 292.984c-8.344 8.34-8.344 21.825 0 30.164a21.27 21.27 0 0 0 15.082 6.25c5.46 0 10.922-2.09 15.082-6.25l128.21-128.214 128.216 128.214a21.27 21.27 0 0 0 15.082 6.25c5.46 0 10.922-2.09 15.082-6.25 8.343-8.34 8.343-21.824 0-30.164zm0 0" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="my-6">
+                        <ul id="wishlistlist" class="lg:col-span-2 space-y-6"></ul>
+                    </div>
+
+
+
+                    <div class=" border-t border-slate-300 pt-4 flex justify-end gap-4 md:pt-6">
+                        <button type="button" id="cancelBtn" onclick="openwishlist()"
+                            class="px-3.5 py-2 text-slate-900 text-sm font-semibold rounded-md cursor-pointer bg-white border border-slate-300 transition-colors hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
+                            Cancel</button>
+                        <button type="button"
+                            class="px-3.5 py-2 text-white text-sm font-semibold rounded-md cursor-pointer bg-pink-500 border border-pink-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500">
+                            Accept</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </nav>
+    <main>
+        <div class="slider overflow-hidden">
+
+            <div class="relative w-full h-auto lg:h-[500px]">
+
+
+                <div id="slider" class="flex h-full transition-transform duration-500 ease-in-out">
+
+
+                    <div class="min-w-full h-full relative">
+                        <img src="img/slider1.jpg" class="w-full h-auto lg:h-full object-contain lg:object-cover"
+                            alt="Sale">
+
+
+                    </div>
+
+
+                    <div class="min-w-full h-full relative">
+                        <img src="img/slider2.jpg" class="w-full h-auto lg:h-full object-contain lg:object-cover"
+                            alt="Fashion">
+                    </div>
+
+
+                    <div class="min-w-full h-full relative">
+                        <img src="img/slider3.jpg" class="w-full h-auto lg:h-full object-contain lg:object-cover"
+                            alt="Collection">
+                    </div>
+
+                </div>
+
+
+
+                <button id="prev" class="absolute left-5 top-1/2 -translate-y-1/2
+               w-16 h-16 rounded-full
+               bg-gray-500/40
+               text-white text-4xl
+               flex items-center justify-center
+               transition">
+                    <i class="fa-solid fa-less-than" style="color: rgb(255, 255, 255);"></i>
+
+                </button>
+
+
+                <button id="next" class="absolute right-5 top-1/2 -translate-y-1/2
+               w-16 h-16 rounded-full
+               bg-gray-500/40 hover:bg-gray-500/60
+               text-white text-4xl
+               flex items-center justify-center
+               transition">
+                    <i class="fa-solid fa-greater-than" style="color: rgb(255, 255, 255);"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="products ">
+            <section class="mt-28 px-4 md:px-8" aria-labelledby="products-heading">
+                <div class="mx-auto max-w-4xl lg:max-w-7xl flex flex-col items-center">
+
+                    <h2 id="products-heading" class="text-2xl font-bold text-slate-900 mb-6 text-center">
+                        Featured Products
+                    </h2>
+
+
+                    <div class="xett w-20 h-[3px] bg-black mb-12"></div>
+
+
+                    <div id="categories" class="flex flex-wrap justify-center items-center gap-3 mb-10">
+                        <button onclick="filtrCtgry('AllProducts')"
+                            class="px-5 py-2.5  border border-gray-200 rounded-full  cursor-pointer bg-black text-white">
+                            All
+                            Product</button>
+                        <button onclick="filtrCtgry('Bags')"
+                            class="px-5 py-2.5  border border-gray-200 rounded-full  text-black cursor-pointer hover:bg-black hover:text-white">
+                            Bags</button>
+                        <button onclick="filtrCtgry('Jewelry')"
+                            class="px-5 py-2.5  border border-gray-200 rounded-full  text-black cursor-pointer hover:bg-black hover:text-white">
+                            Jewellery</button>
+                        <button onclick="filtrCtgry('Men')"
+                            class="px-5 py-2.5  border border-gray-200 rounded-full  text-black cursor-pointer hover:bg-black hover:text-white">
+                            Men's clothing</button>
+                        <button onclick="filtrCtgry('Shoes')"
+                            class="px-5 py-2.5  border border-gray-200 rounded-full  text-black cursor-pointer hover:bg-black hover:text-white">
+                            Shoes</button>
+                        <button onclick="filtrCtgry('Women')"
+                            class="px-5 py-2.5  border border-gray-200 rounded-full  text-black cursor-pointer hover:bg-black hover:text-white">
+                            Women's wear</button>
+                    </div>
+
+
+                    <ul id="cartContainer"
+                        class="grid grid-cols-1 gap-4 md:gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <div class="brends grid grid-cols-2 md:gap-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 mt-3">
+            <a href=""><img class="opacity-50 hover:opacity-100 transition duration-300"
+                    src="img/id8-brand1-240x240.jpg"></a>
+            <a href=""><img class="opacity-50 hover:opacity-100 transition duration-300"
+                    src="img/id8-brand2-240x240.jpg"></a>
+            <a href=""><img class="opacity-50 hover:opacity-100 transition duration-300"
+                    src="img/id8-brand3-240x240.jpg"></a>
+            <a href=""><img class="opacity-50 hover:opacity-100 transition duration-300"
+                    src="img/id8-brand4-240x240.jpg"></a>
+            <a href=""><img class="opacity-50 hover:opacity-100 transition duration-300"
+                    src="img/id8-brand5-240x240.jpg"></a>
+            <a href=""><img class="opacity-50 hover:opacity-100 transition duration-300"
+                    src="img/id8-brand6-240x240.jpg"></a>
+            <a href=""><img class="opacity-50 hover:opacity-100 transition duration-300"
+                    src="img/id8-brand7-240x240.jpg"></a>
+
+        </div>
+
+
+        <div class="signup relative w-full min-h-[450px] bg-cover bg-center flex items-center justify-center p-6"
+            style="background-image: url('img/id8-bg-newsletter.jpg');">
+
+            <div class="signuppage bg-white max-w-2xl w-full rounded-sm shadow-sm py-12 px-8 md:px-16 text-center z-10">
+
+                <h2 class="text-3xl md:text-4xl font-semibold text-gray-900 tracking-tight">
+                    Sign Up Newsletter
+                </h2>
+
+                <p class="text-gray-400 text-sm mt-6 mb-8 max-w-lg mx-auto leading-relaxed">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et
+                    dolore magna aliqua.
+                </p>
+
+                <form class="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
+                    <input type="email" placeholder="Your email address..."
+                        class="w-full sm:flex-1 px-5 py-3 border border-gray-200 rounded-full text-sm text-gray-700 outline-none focus:border-gray-400 transition-colors placeholder:text-gray-400"
+                        required />
+                    <button type="submit"
+                        class="w-full sm:w-auto px-8 py-3 bg-[#222222] hover:bg-pink-500 text-white text-xs font-semibold  rounded-full cursor-pointer">
+                        SUBSCRIBE
+                    </button>
+                </form>
+
+            </div>
+
+        </div>
+
+        <div class="flex flex-col items-center mt-6">
+            <h2 class="text-2xl font-bold text-slate-900 mb-6 ">
+                Latest News
+            </h2>
+
+            <div class="xett w-20 h-[3px] bg-black mb-12"></div>
+        </div>
+
+
+        <div class="news grid grid-cols-2 gap-4 md:gap-8 sm:grid-cols-2 lg:grid-cols-4 mt-6 px-5">
+
+            <div class="max-w-xs p-6 bg-white rounded-lg shadow-sm font-sans">
+
+                <div class="flex items-baseline space-x-1 mb-4">
+                    <span class="text-5xl font-extrabold text-[#f45185]">14</span>
+                    <span class="text-xl text-gray-400 font-light">/ February</span>
+                </div>
+
+
+                <h3 class="text-xl font-bold text-gray-900 leading-snug mb-3">
+                    Kire Tuma Demons Vel Eum Iriure Dolor
+                </h3>
+
+
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum
+                    d..
+                </p>
+
+
+                <a href="#"
+                    class="inline-flex items-center text-sm font-semibold text-gray-900 hover:text-[#f45185] transition-colors group">
+                    <span>View more</span>
+                    <svg class="w-4 h-4 ml-1.5 transform group-hover:translate-x-1 transition-transform" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M13 5l7 7-7 7M6 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="max-w-xs p-6 bg-white rounded-lg shadow-sm font-sans">
+
+                <div class="flex items-baseline space-x-1 mb-4">
+                    <span class="text-5xl font-extrabold text-[#f45185]">13</span>
+                    <span class="text-xl text-gray-400 font-light">/ February</span>
+                </div>
+
+
+                <h3 class="text-xl font-bold text-gray-900 leading-snug mb-3">
+                    Kire Tuma Demons Vel Eum Iriure Dolor
+                </h3>
+
+
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum
+                    d..
+                </p>
+
+
+                <a href="#"
+                    class="inline-flex items-center text-sm font-semibold text-gray-900 hover:text-[#f45185] transition-colors group">
+                    <span>View more</span>
+                    <svg class="w-4 h-4 ml-1.5 transform group-hover:translate-x-1 transition-transform" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M13 5l7 7-7 7M6 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="max-w-xs p-6 bg-white rounded-lg shadow-sm font-sans">
+
+                <div class="flex items-baseline space-x-1 mb-4">
+                    <span class="text-5xl font-extrabold text-[#f45185]">13</span>
+                    <span class="text-xl text-gray-400 font-light">/ February</span>
+                </div>
+
+
+                <h3 class="text-xl font-bold text-gray-900 leading-snug mb-3">
+                    Kire Tuma Demons Vel Eum Iriure Dolor
+                </h3>
+
+
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum
+                    d..
+                </p>
+
+
+                <a href="#"
+                    class="inline-flex items-center text-sm font-semibold text-gray-900 hover:text-[#f45185] transition-colors group">
+                    <span>View more</span>
+                    <svg class="w-4 h-4 ml-1.5 transform group-hover:translate-x-1 transition-transform" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M13 5l7 7-7 7M6 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="max-w-xs p-6 bg-white rounded-lg shadow-sm font-sans">
+
+                <div class="flex items-baseline space-x-1 mb-4">
+                    <span class="text-5xl font-extrabold text-[#f45185]">14</span>
+                    <span class="text-xl text-gray-400 font-light">/ February</span>
+                </div>
+
+
+                <h3 class="text-xl font-bold text-gray-900 leading-snug mb-3">
+                    Kire Tuma Demons Vel Eum Iriure Dolor
+                </h3>
+
+
+                <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum
+                    d..
+                </p>
+
+
+                <a href="#"
+                    class="inline-flex items-center text-sm font-semibold text-gray-900 hover:text-[#f45185] transition-colors group">
+                    <span>View more</span>
+                    <svg class="w-4 h-4 ml-1.5 transform group-hover:translate-x-1 transition-transform" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                            d="M13 5l7 7-7 7M6 5l7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+
+        </div>
+
+        <div class="blogs grid grid-cols-1 gap-5 md:gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 mt-12">
+            <img src="img/Blog_1.jpg">
+            <img src="img/Blog_2.jpg">
+            <img src="img/Blog_3.jpg">
+            <img src="img/Blog_4.jpg">
+            <img src="img/Blog_5.jpg">
+        </div>
+        <script src="js/app.js"></script>
+
+    </main>
+    <footer class="bg-white text-gray-600 font-sans pt-12 pb-6 px-4 mt-10">
+        <div class="max-w-6xl mx-auto flex flex-col items-center text-center">
+
+            <div class="mb-7">
+                <img src="img/logo.png" alt="eMarket Logo" class="h-10 mx-auto">
+            </div>
+
+            <p class="max-w-2xl text-sm text-gray-500 leading-relaxed mb-6">
+                eMarket business concept is to offer fashion and quality at the best price. Market has since it was
+                founded in 1987 grown into one of the world's leading fashion companies.
+            </p>
+
+            <div class="flex items-center space-x-3 mb-8">
+                <a href="#"
+                    class="w-9 h-9 rounded-full bg-gray-200 text-gray-500 hover:bg-pink-500 hover:text-white flex items-center justify-center transition-colors text-sm">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="#"
+                    class="w-9 h-9 rounded-full bg-gray-200 text-gray-500 hover:bg-pink-500 hover:text-white flex items-center justify-center transition-colors text-sm">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a href="#"
+                    class="w-9 h-9 rounded-full bg-gray-200 text-gray-500 hover:bg-pink-500 hover:text-white flex items-center justify-center transition-colors text-sm">
+                    <i class="fa-brands fa-google-plus-g"></i>
+                </a>
+                <a href="#"
+                    class="w-9 h-9 rounded-full bg-gray-200 text-gray-500 hover:bg-pink-500 hover:text-white flex items-center justify-center transition-colors text-sm">
+                    <i class="fa-brands fa-pinterest-p"></i>
+                </a>
+                <a href="#"
+                    class="w-9 h-9 rounded-full bg-gray-200 text-gray-500 hover:bg-pink-500 hover:text-white flex items-center justify-center transition-colors text-sm">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+            </div>
+
+            <div
+                class="flex flex-wrap justify-center gap-6 sm:gap-8 text-xs font-bold tracking-wider text-gray-800 uppercase mb-12">
+                <a href="#" class="hover:text-pink-500 transition-colors">HOME</a>
+                <a href="#" class="hover:text-pink-500 transition-colors">FEATURES</a>
+                <a href="#" class="hover:text-pink-500 transition-colors">COLLECTION</a>
+                <a href="#" class="hover:text-pink-500 transition-colors">SHOP</a>
+                <a href="#" class="hover:text-pink-500 transition-colors">ABOUT US</a>
+                <a href="#" class="hover:text-pink-500 transition-colors">CONTACT US</a>
+            </div>
+
+            <div
+                class="w-full border-t border-b border-dashed border-gray-200 py-8 my-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <div class="flex flex-col items-center">
+                    <div class="text-3xl text-gray-400 mb-3">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+                    <h4 class="font-bold text-sm text-gray-800 mb-1">Free Shipping</h4>
+                    <p class="text-xs text-gray-400">Free Shipping On All UK Oders</p>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <div class="text-3xl text-gray-400 mb-3">
+                        <i class="fa-solid fa-sack-dollar"></i>
+                    </div>
+                    <h4 class="font-bold text-sm text-gray-800 mb-1">Money Guarantee</h4>
+                    <p class="text-xs text-gray-400">30 Days Money Back Guarantee</p>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <div class="text-3xl text-gray-400 mb-3">
+                        <i class="fa-solid fa-headset"></i>
+                    </div>
+                    <h4 class="font-bold text-sm text-gray-800 mb-1">Support 24/7</h4>
+                    <p class="text-xs text-gray-400">We Support Online 24/24 On Day</p>
+                </div>
+
+            </div>
+
+            <div class="text-xs text-gray-400 mt-6">
+                eMarket © 2026 Demo Store. All Rights Reserved. Designed by <a href="#"
+                    class="hover:text-pink-500 font-medium text-gray-500">smartaddons.com</a>
+            </div>
+
+        </div>
+    </footer>
+</body>
+
+</html>
