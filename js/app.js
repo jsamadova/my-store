@@ -98,7 +98,7 @@ function modaliac(id) {
                    
                     <div class="mb-6">
 
-                        <span class="text-3xl font-bold text-gray-900">
+                        <span id="detailPrice" class="text-3xl font-bold text-gray-900">
                             $${data.price}
                         </span>
 
@@ -139,7 +139,7 @@ function modaliac(id) {
                     <div class="flex gap-3">
 
                         <button
-                            onclick="addcart('${data.id}')"
+                            onclick="addcart('${data.id}', detailQuantity)"
                             class="flex-1 bg-black text-white
                                    py-3 rounded-lg font-semibold
                                    hover:bg-gray-800 transition">
@@ -147,7 +147,7 @@ function modaliac(id) {
                         </button>
 
                         <button
-                            onclick="addwishlist('${data.id}')"
+                            onclick="addwishlist('${data.id}', detailQuantity)"
                             class="w-12 h-12 border border-gray-300
                                    rounded-lg text-xl
                                    hover:bg-pink-50 hover:text-pink-500
@@ -161,30 +161,39 @@ function modaliac(id) {
             `;
 
 
-            detailQuantity = 1;
+            detailQuantity = 1
+            detailPrice = data.price
+
 
         });
 }
 
-let detailQuantity = 1;
+let detailQuantity = 1
+let detailPrice = 0
 
 function detailPlus() {
 
-    detailQuantity++;
+    detailQuantity++
 
     document.getElementById("detailQuantity").innerText =
-        detailQuantity;
+        detailQuantity
+
+    document.getElementById("detailPrice").innerText =
+        "$" + (detailPrice * detailQuantity)
 }
 
 
 function detailMinus() {
 
     if (detailQuantity > 1) {
-        detailQuantity--;
+        detailQuantity--
     }
 
     document.getElementById("detailQuantity").innerText =
-        detailQuantity;
+        detailQuantity
+
+    document.getElementById("detailPrice").innerText =
+        "$" + (detailPrice * detailQuantity)
 }
 
 
@@ -348,51 +357,57 @@ function openwishlist() {
 
 // ==================== ADD TO CART ====================
 
-function addcart(id) {
+function addcart(id, quantity = 1) {
 
-    id = String(id);
+    id = String(id)
 
     let item = SEBET.find(e => e.id === id);
 
     if (item) {
-        item.say++;
+        item.say += quantity
     } else {
         SEBET.push({
             id: id,
-            say: 1
+            say: quantity
         });
     }
 
-    showBasket();
-    updatecount();
+    showBasket()
+    updatecount()
 }
 
 
 // ==================== ADD TO WISHLIST ====================
 
-function addwishlist(id) {
+function addwishlist(id, quantity = 1) {
 
-    id = String(id);
+    id = String(id)
 
     let item = SEBET2.find(e => e.id === id);
 
     if (item) {
-        item.say++;
+        item.say += quantity
     } else {
         SEBET2.push({
             id: id,
-            say: 1
+            say: quantity
         });
     }
 
-    showBasket2();
-    updatecount2();
+    showBasket2()
+    updatecount2()
 }
 
 
 // ========================================
 
 function showBasket() {
+
+    if (SEBET.length === 0) {
+        sebetlist.innerHTML = "";
+        sebetmodal.style.display = "none";
+        return;
+    }
 
     sebetlist.innerHTML = SEBET.map(item => {
 
@@ -434,7 +449,7 @@ function showBasket() {
 
                         <div class="mt-auto">
                             <p class="text-sm font-semibold text-slate-900">
-                                ${product.price}$
+                                ${product.price * item.say}$
                             </p>
                         </div>
 
@@ -502,6 +517,12 @@ function showBasket() {
 
 function showBasket2() {
 
+    if (SEBET2.length === 0) {
+        wishlistlist.innerHTML = "";
+        wishlistmodal.style.display = "none";
+        return;
+    }
+
     wishlistlist.innerHTML = SEBET2.map(item => {
 
         let product = AllProduct.find(
@@ -542,7 +563,7 @@ function showBasket2() {
 
                         <div class="mt-auto">
                             <p class="text-sm font-semibold text-slate-900">
-                                ${product.price}$
+                                ${product.price * item.say}$
                             </p>
                         </div>
 
@@ -553,6 +574,16 @@ function showBasket2() {
                 <div class="ml-auto flex flex-col">
 
                     <div class="flex items-start gap-4 justify-end">
+
+                      <button
+                            onclick="addcart('${item.id}')"
+                            type="button"
+                            class="cursor-pointer"
+                            title="Add to wishlist"
+                        >
+                             <i class="fa-solid fa-basket-shopping"></i>
+                        </button>
+
 
                         <button
                             onclick="productdelete2('${item.id}')"
@@ -674,6 +705,8 @@ function productdelete(id) {
 
     showBasket();
     updatecount();
+
+
 }
 
 function productdelete2(id) {
@@ -725,7 +758,7 @@ function srcporduct(axtarisSon) {
 
         return `
                    <li>
-                <a href="#" class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
+                <a href="#" onclick="modaliac('${item.id}')" class="flex items-center gap-3 p-2 hover:bg-gray-50 rounded-lg transition-colors">
                     <div class="w-12 h-12 shrink-0 bg-gray-100 p-1 rounded-md overflow-hidden">
                         <img src="${item.image}" alt="${item.title}" class="h-full w-full object-contain" />
                     </div>
